@@ -1,0 +1,20 @@
+<h2>Rock, Paper, Scissors Game</h2>
+<div>
+  <label *ngFor="let option of options">
+    <input
+      type="radio"
+      name="options"
+      [value]="option"
+      [(ngModel)]="choice"
+    />
+    {{ option }}
+  </label>
+</div>
+<button (click)="play()">Play</button>
+
+<div *ngIf="computerMove">
+  <h3>API Computer Move:</h3>
+  <p>{{ computerMove }}</p>
+  <h3>API Match Result:</h3>
+  <p>{{ result }}</p>
+</div>
