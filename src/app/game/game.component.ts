@@ -24,7 +24,7 @@ export class GameComponent {
       this.apiService.playMatch(this.choice).subscribe(
         (response) => {
           this.computerMove = response.computerMove;
-          this.result = response.winner;
+          this.result = response.result.message;
         },
         (error) => {
           console.error('Error:', error);
