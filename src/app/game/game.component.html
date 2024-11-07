@@ -1,22 +1,46 @@
-<h2>Rock, Paper, Scissors Game</h2>
-<div>
-  <label *ngFor="let option of options">
-    <input
-      type="radio"
-      name="options"
-      [value]="option"
-      [(ngModel)]="choice"
-    />
-    {{ option }}
+<h2 class="game-title">Rock, Paper, Scissors Game</h2>
+
+<!-- Slide Toggle for fun -->
+<div class="switch-container">
+  <label class="switch">
+    <input type="checkbox" (change)="toggleArray()" [checked]="currentImages === funnyImages">
+    <span class="slider"></span>
   </label>
 </div>
-<button (click)="play()">Play</button>
 
-<div *ngIf="computerMove">
-  <h3>API Computer Move:</h3>
-  <p>{{ computerMove }}</p>
+<!-- Player Options -->
+<div class="button-container">
+  <button 
+    *ngFor="let image of currentImages" 
+    type="button"
+    class="round-button"
+    [ngStyle]="{'background-image': 'url(' + 'http://localhost:8080/h2h-combat/images/' + image.imageName + ')'}"
+    [value]="image.name"  
+    (click)="selectChoice(image.name)"
+    [ngClass]="{'selected': choice === image.name}"
+  >
+  </button>
 </div>
-<div *ngIf="result">
-  <h3>API Match Result:</h3>
-  <p>{{ result }}</p>
+
+<!-- Play Button -->
+<button class="play-button" (click)="play()">Play</button>
+
+<!-- Scoreboard -->
+<div class="scoreboard">
+  <div class="score">
+    <p>Player Wins: <span class="score-value">{{ sPlayerWins }}</span></p>
+    <div class="score-bar player-score" [style.width.%]="(sPlayerWins / (sPlayerWins + sCpuWins)) * 100"></div>
+  </div>
+  
+  <div class="score">
+    <p>CPU Wins: <span class="score-value">{{ sCpuWins }}</span></p>
+    <div class="score-bar cpu-score" [style.width.%]="(sCpuWins / (sPlayerWins + sCpuWins)) * 100"></div>
+  </div>
+</div>
+
+<!-- Display Game Result -->
+<div *ngIf="result" class="game-result">
+  <h3>{{ result }}</h3>
+  <p><strong>Player's Move:</strong> {{ choice | uppercase }}</p>
+  <p><strong>CPU's Move:</strong> {{ computerMove }}</p>
 </div>
