@@ -1,0 +1,28 @@
+{
+    "topbar": {
+        "title": "Rock, Paper, Scissors Game",
+        "english": "English",
+        "spanish": "Spanish"
+    },
+    "playPage": {
+        "play": "Play",
+        "change": "Change images",
+        "playerWins": "Player Wins:",
+        "cpuWins": "CPU Wins:",
+        "playerMove": "Player's Move:",
+        "cpuMove": "CPU's Move:",
+        "winner": {
+            "player": "Player Wins!",
+            "cpu": "CPU Wins!",
+            "": "It's a tie!"
+        },
+        "moves": {
+            "ROCK": "Rock",
+            "PAPER": "Paper",
+            "SCISSORS": "Scissors"
+        }
+    },
+    "history": {
+
+    }
+}

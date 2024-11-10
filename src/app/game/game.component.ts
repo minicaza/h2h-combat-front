@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { I18nService } from '../services/i18n.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @Component({
@@ -9,26 +11,26 @@ import { CommonModule } from '@angular/common';
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.css'],
   standalone: true,
-  imports: [FormsModule, CommonModule]
+  imports: [FormsModule, CommonModule, TranslateModule]
 })
 export class GameComponent {
   handImages = [
-    { id: 1, name: "rock", imageName: 'hand_rock.png' },
-    { id: 2, name: "paper", imageName: 'hand_paper.png' },
-    { id: 3, name: "scissors", imageName: 'hand_scissors.png' }
+    { id: 1, name: "ROCK", imageName: 'hand_rock.png' },
+    { id: 2, name: "PAPER", imageName: 'hand_paper.png' },
+    { id: 3, name: "SCISSORS", imageName: 'hand_scissors.png' }
   ];
 
   funnyImages = [
-    { id: 1, name: "rock", imageName: 'funny_rock.png' },
-    { id: 2, name: "paper", imageName: 'funny_paper.jpg' },
-    { id: 3, name: "scissors", imageName: 'funny_scissors.png' }
+    { id: 1, name: "ROCK", imageName: 'funny_rock.png' },
+    { id: 2, name: "PAPER", imageName: 'funny_paper.jpg' },
+    { id: 3, name: "SCISSORS", imageName: 'funny_scissors.png' }
   ];
 
   currentImages = this.handImages;
 
   choice: string | null = null;
   computerMove: string = '';
-  result: string = '';
+  resultMessage: string = '';
   winner: string = '';
 
   // Session win counter
@@ -44,25 +46,25 @@ export class GameComponent {
     this.choice = choice;
   }
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService, public i18nService: I18nService) {}
 
   play() {
     if (this.choice) {
       this.apiService.playMatch(this.choice).subscribe(
         (response) => {
           this.computerMove = response.computerMove;
-          this.result = response.result.message;
+          this.resultMessage = response.result.message;
           
           this.winner = response.result.winner;
-          this.winner != null && this.winner === 'Player' ? this.sPlayerWins++ : this.sCpuWins++;
+          this.winner != null && this.winner === 'player' ? this.sPlayerWins++ : this.sCpuWins++;
         },
         (error) => {
           console.error('Error:', error);
-          this.result = 'Error occurred while playing the game.';
+          this.resultMessage = 'Error occurred while playing the game.';
         }
       );
     } else {
-      this.result = 'Please select an option.';
+      this.resultMessage = 'Please select an option.';
     }
   }
 }

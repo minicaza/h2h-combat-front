@@ -1,0 +1,28 @@
+{
+    "topbar": {
+        "title": "Piedra, papel o tijera",
+        "english": "Inglés",
+        "spanish": "Español"
+    },
+    "playPage": {
+        "play": "Jugar",
+        "change": "Cambiar imágenes",
+        "playerWins": "Victorias Jugador:",
+        "cpuWins": "Victorias CPU:",
+        "playerMove": "Movimiento Jugador:",
+        "cpuMove": "Movimiento CPU:",
+        "winner": {
+            "player": "Jugador gana!",
+            "cpu": "CPU gana!",
+            "": "Es un empate!"
+        },
+        "moves": {
+            "ROCK": "Piedra",
+            "PAPER": "Papel",
+            "SCISSORS": "Tijeras"
+        }
+    },
+    "history": {
+
+    }
+}

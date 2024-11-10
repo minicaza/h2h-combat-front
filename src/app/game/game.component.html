@@ -1,11 +1,10 @@
-<h2 class="game-title">Rock, Paper, Scissors Game</h2>
-
 <!-- Slide Toggle for fun -->
 <div class="switch-container">
   <label class="switch">
     <input type="checkbox" (change)="toggleArray()" [checked]="currentImages === funnyImages">
     <span class="slider"></span>
   </label>
+  <span class="switch-text" [ngClass]="{ 'active': currentImages === funnyImages }">{{'playPage.change' | translate}}</span>
 </div>
 
 <!-- Player Options -->
@@ -23,24 +22,24 @@
 </div>
 
 <!-- Play Button -->
-<button class="play-button" (click)="play()">Play</button>
+<button class="play-button" (click)="play()">{{'playPage.play' | translate}}</button>
 
 <!-- Scoreboard -->
 <div class="scoreboard">
   <div class="score">
-    <p>Player Wins: <span class="score-value">{{ sPlayerWins }}</span></p>
+    <p>{{'playPage.playerWins' | translate}} <span class="score-value">{{ sPlayerWins }}</span></p>
     <div class="score-bar player-score" [style.width.%]="(sPlayerWins / (sPlayerWins + sCpuWins)) * 100"></div>
   </div>
   
   <div class="score">
-    <p>CPU Wins: <span class="score-value">{{ sCpuWins }}</span></p>
+    <p>{{'playPage.cpuWins' | translate}} <span class="score-value">{{ sCpuWins }}</span></p>
     <div class="score-bar cpu-score" [style.width.%]="(sCpuWins / (sPlayerWins + sCpuWins)) * 100"></div>
   </div>
 </div>
 
 <!-- Display Game Result -->
-<div *ngIf="result" class="game-result">
-  <h3>{{ result }}</h3>
-  <p><strong>Player's Move:</strong> {{ choice | uppercase }}</p>
-  <p><strong>CPU's Move:</strong> {{ computerMove }}</p>
+<div *ngIf="resultMessage" class="game-result">
+  <h3>{{'playPage.winner.' + (winner || '')| translate}}</h3>
+  <p><strong>{{'playPage.playerMove' | translate}}</strong> {{ 'playPage.moves.' + (choice || '') | translate | uppercase }}</p>
+  <p><strong>{{'playPage.cpuMove' | translate}}</strong> {{ 'playPage.moves.' + (computerMove || '') | translate | uppercase }}</p>
 </div>

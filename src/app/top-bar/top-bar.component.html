@@ -1,0 +1,16 @@
+<nav class="navbar">
+    <!-- Icon and App Name -->
+    <div class="navbar-left">
+      <a href="/game" class="navbar-icon">
+        <img src="http://localhost:8080/h2h-combat/images/app.png" alt="App Icon" class="icon">
+      </a>
+      <span class="app-name">{{ 'topbar.title' | translate }}</span>
+    </div>
+  
+    <!-- Language Switcher Button -->
+    <div class="navbar-right">
+      <button (click)="switchLanguage('en')" class="lang-button">{{'topbar.english' | translate}}</button>
+      <button (click)="switchLanguage('es')" class="lang-button">{{'topbar.spanish' | translate}}</button>
+    </div>
+  </nav>
+  

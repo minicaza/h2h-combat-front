@@ -1,0 +1,77 @@
+.navbar {
+  display: flex;
+  justify-content: space-between; /* Distribute items from left to right */
+  align-items: center; 
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar app icon and name section */
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-icon {
+  text-decoration: none;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.app-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Navbar language section */
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.lang-button {
+  background-color: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  font-size: 1rem;
+  padding: 8px 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-right: 10px;
+}
+
+.lang-button:hover {
+  background-color: #fff; /* White background on hover */
+  color: #4CAF50; /* Green text color on hover */
+  border-color: #4CAF50; /* Green border on hover */
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px 15px;
+  }
+
+  .icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .app-name {
+    font-size: 0.9rem;
+  }
+
+  .lang-button {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+    margin-right: 5px;
+  }
+}
