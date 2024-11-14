@@ -11,4 +11,5 @@ import { TopBarComponent } from './top-bar/top-bar.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent{
+  title = 'h2h-combat-front';
 }

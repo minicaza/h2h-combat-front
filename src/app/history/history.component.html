@@ -1,1 +1,21 @@
-<p>history works!</p>
+<div class="chart-container">
+    <p-chart type="pie" [data]="data" [options]="options"></p-chart>
+</div>
+<p-table [value]="gamesHistory" [paginator]="true" [rows]="10">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Title</th>
+        <th>Player Move</th>
+        <th>Computer Move</th>
+        <th>Winner</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-game>
+      <tr>
+        <td>{{ game.title }}</td>
+        <td>{{ game.playerMove }}</td>
+        <td>{{ game.computerMove }}</td>
+        <td>{{ game.result.winner ? game.result.winner : 'Tie' }}</td>
+      </tr>
+    </ng-template>
+</p-table>

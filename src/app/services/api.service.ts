@@ -14,4 +14,8 @@ export class ApiService {
   playMatch(option: String): Observable<any>{
     return this.http.post(`${this.apiUrl}/play`, option);
   }
+
+  getGames(): Observable<any[]>{
+    return this.http.get<any[]>(`${this.apiUrl}/history`);
+  }
 }

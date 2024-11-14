@@ -1,0 +1,13 @@
+.chart-container {
+    display: flex;                  /* Enable flexbox */
+    justify-content: center;        /* Center horizontally */
+    align-items: center;            /* Center vertically */
+    width: 100%;                    /* Ensure container takes full width */
+    height: 100vh;                  /* Ensure container takes full viewport height */
+  }
+  
+  p-chart {
+    display: block;
+    width: 20%;    /* Takes up 20% of the parent's width */
+    height: 20%;   /* Takes up 20% of the parent's height */
+  }

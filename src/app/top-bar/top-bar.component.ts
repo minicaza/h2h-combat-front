@@ -6,8 +6,8 @@ import { TranslateModule } from '@ngx-translate/core';
   selector: 'app-top-bar',
   standalone: true,
   imports: [TranslateModule],
-  templateUrl: './top-bar.component.html',
-  styleUrl: './top-bar.component.css'
+  templateUrl: './top-bar.component.html', 
+  styleUrls: ['./top-bar.component.css']
 })
 export class TopBarComponent {
 
